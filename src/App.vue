@@ -1,24 +1,33 @@
 <!--  -->
 <template>
-    <div>
-        <p>我也是醉了</p>
+    <div class="app">
+      <Header></Header>
+      <Tabbar></Tabbar>
+      <router-view></router-view>
     </div>
 </template>
 
 <script>
+import Header from './components/Header'
+import Tabbar from './components/Tabbar'
     export default {
-        name:'',
+        name:'app',
         props:[''],
         data () {
             return {
 
             };
         },
-        components: {},
+        components: {
+          Header:Header,
+          Tabbar:Tabbar,
+        },
         computed: {},
         beforeMount() {},
         mounted() {},
-        methods: {},
+        methods: {
+        
+        },
         watch: {}
 
     }
@@ -26,9 +35,5 @@
 </script>
 
 <style lang='scss' scoped>
-p{
-  width: 100px;
-  height: 100px;
-  background-color: yellow;
-}
+
 </style>
