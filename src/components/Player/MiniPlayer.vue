@@ -3,8 +3,8 @@
                 v-on:enter="enter"
                 v-on:leave="leave"  >
   <div class="mini-player" v-show="this.isMiniPlayer">
-      <div class="player-wrapper">
-          <div class="player-left" @click="selectMusic">
+      <div class="player-wrapper" @click="selectMusic">
+          <div class="player-left">
               <img :src="currentSong.picUrl" alt="" ref="cd">
               <div class="player-title">
                 <h3>{{currentSong.name}}</h3>
@@ -12,7 +12,7 @@
               </div>
           </div>
           <div class="player-right">
-              <div class="play" @click="togglePlay" ref="play"></div>
+              <div class="play" @click.stop="togglePlay" ref="play"></div>
               <div class="list" @click.stop="listShow"></div>
           </div>
       </div>

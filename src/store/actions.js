@@ -47,10 +47,9 @@ export default{
         commit(SET_SONG_DETAIL,list);
        },
     async setSongLyric({commit},id){
-
         let result =await getSongLyric({id:id});
-        // console.log(result.lrc.lyric);
         let obj=parseLyric(result.lrc.lyric);
+        // console.log(result.lrc.lyric);
         commit(SET_SONG_LYRIC,obj);
        },
        setDelSong({commit},index){
@@ -78,6 +77,9 @@ export default{
         commit(SET_HISTORY_LIST,list);
       },
       setIsFirstPlay({commit},flag){
+        commit(SET_IS_FIRST_PLAY,flag);
+      },
+      setcurrentSong({commit},flag){
         commit(SET_IS_FIRST_PLAY,flag);
       },
     

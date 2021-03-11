@@ -1,7 +1,7 @@
 <!--  -->
 <template>
     <div class="player">
-   <NormalPlayer :totalTime="totalTime" :currentTime="currentTime"></NormalPlayer>
+    <NormalPlayer :totalTime="totalTime" :currentTime="currentTime"></NormalPlayer>
    <MiniPlayer></MiniPlayer>
    <ListPlayer></ListPlayer>
    <audio :src="currentSong.url" ref="audio" @timeupdate ="timeupdate" @ended="end"></audio>
@@ -51,7 +51,7 @@ import {getRandomIntInclusive,setLocalStorage,getLocalStorage} from  './../tools
         },
         beforeMount() {},
         mounted() {
-            this.$refs.audio.oncanplay=()=>{
+            this.$refs.audio.ondurationchange=()=>{
                 this.totalTime=this.$refs.audio.duration;
                 // console.log(this.totalTime);
             }
@@ -95,7 +95,7 @@ import {getRandomIntInclusive,setLocalStorage,getLocalStorage} from  './../tools
                 }
             },
             currentSong(newvalue,oldvalue){
-                 this.$refs.audio.oncanplay=()=>{
+                 this.$refs.audio.ondurationchange=()=>{
                     this.totalTime=this.$refs.audio.duration;
                     this.setHistorySong(this.currentSong);
                     if(this.isPlaying){
@@ -106,7 +106,7 @@ import {getRandomIntInclusive,setLocalStorage,getLocalStorage} from  './../tools
                 }
             },
             currentIndex(newvalue,oldvalue){
-                this.$refs.audio.oncanplay=()=>{
+                this.$refs.audio.ondurationchange=()=>{
                     this.totalTime=this.$refs.audio.duration;
                     this.setHistorySong(this.currentSong);
                     if(this.isPlaying){
@@ -123,5 +123,22 @@ import {getRandomIntInclusive,setLocalStorage,getLocalStorage} from  './../tools
 </script>
 
 <style lang='scss' scoped>
-
+.v-enter{
+    transform: translateX(100%);
+}
+.v-enter-to{
+    transform: translateX(0%);
+}
+.v-enter-active{
+    transition: all 0.5s;
+}
+.v-leave{
+        transform: translateX(0%);
+}
+.v-leave-to{
+        transform: translateX(100%);
+}
+.v-leave-active{
+    transition: all 0.5s;
+}
 </style>

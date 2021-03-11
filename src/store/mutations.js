@@ -58,7 +58,7 @@ export default{
         },
         [SET_FAVORITE_SONG](state,song){
           let result=state.favoriteList.find(function(currentValue){
-              if(currentValue.id===song.id){
+              if(currentValue.id===song.id||song.name===''){
                 return true;
               }
               // return currentValue.id===song.id;
@@ -83,7 +83,6 @@ export default{
         },
         [SET_HISTORY_SONG](state,song){
           let result=state.historyList.find(function(currentValue){
-              // console.log(currentValue);
               if(currentValue.id===song.id){
                 // console.log(song);
                 return true;

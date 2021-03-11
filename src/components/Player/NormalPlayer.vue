@@ -64,14 +64,14 @@ import 'velocity-animate/velocity.ui'
             enter(el, done){
                 // el.offsetWidth;
                 // el.offsetHeight;
-               Velocity(el,"transition.shrinkIn", { duration: 500 },function(){
+               Velocity(el,"transition.fadeIn", { duration: 1000 },function(){
                    done();
                });
                 //注意点: 动画执行完毕之后一定要调用done回调函数
                 // done();
             },
             leave(el){
-               Velocity(el,"transition.shrinkOut", { duration: 500 },function(){
+               Velocity(el,"transition.fadeOut", { duration: 500 },function(){
                    done();
                });
             },
@@ -116,7 +116,7 @@ import 'velocity-animate/velocity.ui'
         img{
             width: 120%;
             height: 100%;
-            transform: scale(1.2,1.2);
+            transform: scale(1.2,1.0);
         }
     } 
 }

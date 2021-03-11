@@ -3,7 +3,7 @@
     <div class="header" @click="changetheme">
         <div class="header-left"></div>
         <div class="header-title">music</div>
-        <div class="header-right"></div>
+        <div class="header-right" @click.stop="accountClick"></div>
     </div>
 </template>
 
@@ -29,7 +29,10 @@
                     this.index=0;
                 }
                 document.documentElement.setAttribute('data-theme', this.themes[this.index]);
-            }
+                 },
+                 accountClick(){
+                     this.$router.push('/account');
+                 }
         },
         watch: {}
     }

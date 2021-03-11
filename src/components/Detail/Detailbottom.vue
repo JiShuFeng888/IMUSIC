@@ -90,7 +90,7 @@ import {mapActions, mapGetters} from 'vuex';
     li{
         width: 100%;
         padding:20px;
-        height: 100px;
+        height: 120px;
         box-sizing: border-box;
         @include bg_sub_color();
         border-bottom: 1px solid #cccccc;

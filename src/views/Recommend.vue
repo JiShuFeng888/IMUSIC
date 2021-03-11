@@ -44,9 +44,28 @@ import Scrollview from '../components/Scrollview'
             .catch(function(error){
                 console.log(error);
             }),
-            getSong().then((data)=>(
-                 this.songs=data.result
-                ))
+            getSong().then((data)=>{
+                //  this.songs=data.result  
+                let list=[]
+                data.result.forEach((value)=>{
+                    let obj={};
+                    obj.id=value.id;
+                    obj.name=value.name;
+                    obj.picUrl=value.song.album.picUrl;
+                    let singer=''
+                    for(let i=0;i<value.song['artists'].length;i++){
+                         if(i===0){
+                             singer=value.song['artists'][i].name;
+                         }else{
+                             singer+="-"+value.song['artists'][i].name;
+                         }
+                    }
+                    obj.singer=singer;
+                    list.push(obj)
+                })
+                this.songs=list;
+
+            })
             .catch(function(error){
                 console.log(error);
             })

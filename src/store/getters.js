@@ -17,14 +17,14 @@ export default{
       songs(state){
         return state.songs;
       },
-      currentSong(state){
-        let obj={
-          name:'',
-          singer:'',
-          picUrl:null
+      currentSong  (state) {
+        let obj = {
+          name: '',
+          singer: '',
+          picUrl: null
         }
-        if(state.songs.length!==0){
-          obj=state.songs[state.currentIndex];
+        if (state.songs.length !== 0) {
+          obj = state.songs[state.currentIndex]
         }
         return obj;
       },
