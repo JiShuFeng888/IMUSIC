@@ -2,7 +2,7 @@
 <template>
     <div class="header" @click="changetheme">
         <div class="header-left"></div>
-        <div class="header-title">music</div>
+        <div class="header-title">MUSIC</div>
         <div class="header-right" @click.stop="accountClick"></div>
     </div>
 </template>
