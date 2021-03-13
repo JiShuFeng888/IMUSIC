@@ -13,7 +13,7 @@
 
 <script>
 import SubHeader from '../components/Detail/DetailHeader.vue';
-import {getPlayList,getAlbumList,getArtistSongs} from '../api/index'
+import {getPlayList,getAlbumList,getArtistSongs,getTopList} from '../api/index'
 import Detailtop from '../components/Detail/Detailtop.vue';
 import Detailbottom from '../components/Detail/Detailbottom.vue';
 import Scrollview from '../components/Scrollview'
@@ -63,6 +63,18 @@ import Scrollview from '../components/Scrollview'
                             name:data.artist.name,
                             coverImgUrl:data.artist.picUrl,
                             tracks:data.hotSongs
+                        }
+                    })
+                    .catch((error)=>{
+                        console.log(error);
+                    })
+            }else if(this.$route.params.type==="rank"){
+                getTopList({id:this.$route.params.id})
+                    .then((data)=>{
+                        this.playlist={
+                            name:data.playlist.name,
+                            coverImgUrl:data.playlist.creator.backgroundUrl,
+                            tracks:data.playlist.tracks
                         }
                     })
                     .catch((error)=>{
