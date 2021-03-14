@@ -1,9 +1,13 @@
 <!--  -->
 <template>
-    <div class="header" @click="changetheme">
-        <div class="header-left"></div>
-        <div class="header-title">MUSIC</div>
-        <div class="header-right" @click.stop="accountClick"></div>
+     <div class="header" @click="changetheme">
+        <div class="left">
+            <slot name="left"></slot>
+        </div>
+        <slot name="center"></slot>
+        <div class="right">
+            <slot name="right"></slot>
+        </div>
     </div>
 </template>
 
@@ -30,9 +34,6 @@
                 }
                 document.documentElement.setAttribute('data-theme', this.themes[this.index]);
                  },
-                 accountClick(){
-                     this.$router.push('/account');
-                 }
         },
         watch: {}
     }
@@ -45,26 +46,18 @@
 .header{
     width: 100%;
     height: 100px;
-    // background-color: #f00;
     @include bg-color();
     display: flex;
     justify-content: space-between;
     font-size: 30px;
-    .header-left,.header-right{
+    .left,.right{
         margin-top: 8px;
         width: 84px;
         height: 84px;
-    }
-    .header-left{
-        @include bg_img('../assets/images/logo')
-    }
-     .header-right{
-        @include bg_img('../assets/images/account')
-    }
-    .header-title{
-        line-height: 100px;
-        @include font_size($font-medium);
-        color: #ffffff;
+        *{
+            width: 100%;
+            height: 100%;
+        }
     }
 }
 

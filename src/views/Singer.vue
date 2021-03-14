@@ -1,6 +1,8 @@
 <!--  -->
 <template>
     <div class="singer">
+        <div class="singer-wrapper">
+
         <Scrollview ref="scroll">
             <ul class="list-wrapper">
                 <li class="list-group" v-for="(value,index) in list" :key="index" ref="group">
@@ -27,6 +29,7 @@
             <transition>
                 <router-view></router-view>
             </transition>
+        </div>
     </div>
 </template>
 
@@ -164,12 +167,16 @@ import Scrollview from '../components/Scrollview'
 <style lang='scss' scoped>
 @import '../assets/css/mixin.scss';
 .singer{
-    position: fixed;
-    top: 184px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    .singer-wrapper{
+        position: fixed;
+        top: 184px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+
     @include bg_sub_color();
     .list-wrapper{
         .list-group{
@@ -226,6 +233,7 @@ import Scrollview from '../components/Scrollview'
         padding: 10px 50px;
         box-sizing: border-box;
         
+    }
     }
 }
 .v-enter{

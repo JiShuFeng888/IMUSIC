@@ -1,6 +1,8 @@
 <!--  -->
 <template>
     <div class="rank">
+        <div class="rank-wrapper">
+
         <ScrollView>
             <ul class="">
                 <li v-for="(value,key) in category.titles" :key="key"> 
@@ -28,6 +30,7 @@
         <transition>
             <router-view></router-view>
         </transition>
+        </div>
     </div>
 </template>
 
@@ -88,12 +91,16 @@ import ScrollView from '../components/Scrollview'
 @import '../assets/css/mixin.scss';
 
 .rank{
-    overflow: hidden;
-    position: fixed;
-    top: 184px;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height:100%;
+    .rank-wrapper{
+        overflow: hidden;
+        position: fixed;
+        top: 184px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
     @include bg_sub_color();
     .group-title{
     @include font_size($font_large);
@@ -138,6 +145,7 @@ import ScrollView from '../components/Scrollview'
             }
         }
     }
+    }    
 
 }
 .v-enter{

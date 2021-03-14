@@ -1,15 +1,18 @@
 <!--  -->
 <template>
     <div class="app">
-      <Header></Header>
+      <MainHeader></MainHeader>
       <Tabbar></Tabbar>
+      <keep-alive>
+      <!-- <keep-alive include="Singer"> -->
       <router-view></router-view>
+      </keep-alive>
       <Player></Player>
     </div>
 </template>
 
 <script>
-import Header from './components/Header'
+import MainHeader from './components/MainHeader'
 import Tabbar from './components/Tabbar'
 import Player from './views/Player.vue'
     export default {
@@ -21,7 +24,7 @@ import Player from './views/Player.vue'
             };
         },
         components: {
-          Header:Header,
+          MainHeader:MainHeader,
           Tabbar:Tabbar,
           Player,
         },
