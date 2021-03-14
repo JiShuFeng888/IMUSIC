@@ -98,20 +98,24 @@ import {mapGetters} from 'vuex';
                     this.$refs.cd.classList.remove('active')
                 }
             },
-            currentTime(newvalue,oldvalue){
-                // console.log(newvalue);
-                //1.设置歌词高亮
-                let lineNum=Math.floor(newvalue);
-                this.currentLineTime=this.getActionLyricNum(lineNum);
-                //2.设置歌词在视野中部
-                let lyricTop=document.querySelector("li.active").offsetTop;
-                // console.log(lyricTop);
-                let wrapperHeight=this.$refs.lyric.$el.offsetHeight;
-                if(lyricTop>wrapperHeight/2){
-                    this.$refs.scroll.scrollTo(0,wrapperHeight/2-lyricTop,100);
-                }else{
-                    this.$refs.scroll.scrollTo(0,0,100);
-                }
+            currentTime(newvalue,oldvalue){ 
+                this.$nextTick(function(){
+
+                    //1.设置歌词高亮
+                    let lineNum=Math.floor(newvalue);
+                    this.currentLineTime=this.getActionLyricNum(lineNum);
+                    //2.设置歌词在视野中部
+                    if(document.querySelector(".lyric .active")){
+                        //修复纯音乐没有歌词的bug
+                        let lyricTop=document.querySelector(".lyric .active").offsetTop;
+                        let wrapperHeight=this.$refs.lyric.$el.offsetHeight;
+                        if(lyricTop>wrapperHeight/2){
+                            this.$refs.scroll.scrollTo(0,wrapperHeight/2-lyricTop);
+                        }else{
+                            // this.$refs.scroll.scrollTo(0,0,100);
+                        }
+                    }
+                })
                 
                 
             }

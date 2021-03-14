@@ -128,3 +128,5 @@ export const  getTopListDetail = () => {
       })
   })
 }
+export const getSearchList = (data) => Network.get('search?type=1',data)
+export const getSearchHot = (data) => Network.get('search/hot',data)

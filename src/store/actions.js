@@ -48,9 +48,11 @@ export default{
        },
     async setSongLyric({commit},id){
         let result =await getSongLyric({id:id});
-        let obj=parseLyric(result.lrc.lyric);
-        // console.log(result.lrc.lyric);
-        commit(SET_SONG_LYRIC,obj);
+        if(result.lrc!==undefined){
+          let obj=parseLyric(result.lrc.lyric);
+          // console.log(result.lrc.lyric);
+          commit(SET_SONG_LYRIC,obj);
+        }
        },
        setDelSong({commit},index){
         commit(SET_DEL_SONG,index);

@@ -63,7 +63,7 @@ import ScrollView from '../components/Scrollview'
                        }
                         data[key]=data[key].filter(function(value,index){
                             if(value.rank!==undefined){
-                                // console.log(value);
+                                // console.log(value)
                                 return true;
                             }
                         })
