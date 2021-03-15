@@ -7,9 +7,7 @@ import './assets/css/base.scss'
 import VueLazyload from 'vue-lazyload'
 import Loading from './plugin/loading/index'
 
-import MetaInfo from 'vue-meta-info'
- 
-Vue.use(MetaInfo);
+
 Vue.use(Loading, {
   title:'正在努力加载中...'
   
@@ -28,6 +26,5 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
-  render: h => h(App),
-  mounted: () => document.dispatchEvent(new Event("x-app-rendered")),
+  render: h => h(App)
 }).$mount('#app')

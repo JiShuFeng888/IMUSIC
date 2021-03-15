@@ -17,10 +17,7 @@ import {getPlayList,getAlbumList,getArtistSongs,getTopList} from '../api/index'
 import Detailtop from '../components/Detail/Detailtop.vue';
 import Detailbottom from '../components/Detail/Detailbottom.vue';
 import Scrollview from '../components/Scrollview'
-import MetaInfo from './../../vue-meta-info'
-
     export default {
-        metaInfo:MetaInfo.detail,
         name:'',
         props:[''],
         data () {

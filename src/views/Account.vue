@@ -11,9 +11,8 @@
 <script>
 import AccountHeader from './../components/Account/AccoutHeader'
 import AccountBottom from './../components/Account/AccountBottom'
-import MetaInfo from './../../vue-meta-info'
+
      export default {
-        metaInfo:MetaInfo.account,
         name:'',
         props:[''],
         data () {

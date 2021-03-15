@@ -23,10 +23,8 @@ import Banner from '../components/Recommend/Banner'
 import Personalized from '../components/Recommend/personalized'
 import Songlist from '../components/Recommend/Songlist'
 import Scrollview from '../components/Scrollview'
-import MetaInfo from './../../vue-meta-info'
 
     export default {
-        metaInfo:MetaInfo.recommend,
         created(){
             getBanner().then((data)=>(
                 this.banners=data.banners
