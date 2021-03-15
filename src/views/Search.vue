@@ -40,7 +40,10 @@ import ScrollView from '../components/Scrollview'
 import {getSearchList,getSearchHot} from '../api/index'
 import {mapActions, mapGetters} from 'vuex';
 import {getLocalStorage,setLocalStorage} from '../tools/tools'
+import MetaInfo from './../../vue-meta-info'
+
     export default {
+        metaInfo:MetaInfo.search,
         name:'',
         props:[''],
         data () {

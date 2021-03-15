@@ -1,15 +1,16 @@
 <!--  -->
 <template>
-    <div class="header" @click="changetheme">
-        <div class="header-left" @click.stop="back"></div>
-        <ul class="item">
+    <Header class="header">
+        <div class="header-left" @click.stop="back" slot="left"></div>
+        <ul class="item" slot="center">
             <li @click.stop="setClickNum(0)" :class="{'active':ClickNum===0}">我的喜欢</li>
             <li @click.stop="setClickNum(1)" :class="{'active':ClickNum===1}">播放历史</li></ul>
-        <div class="header-right"></div>
-    </div>
+        <div class="header-right" slot="right"></div>
+    </Header>
 </template>
 
 <script>
+import Header from './../Header'
     export default {
         name:'AccountHeader',
         props:{
@@ -21,30 +22,23 @@
         },
         data () {
             return {
-                themes:['theme','theme1','theme2'],
-                index:0,
                 ClickNum:0,
 
             };
         },
-        components: {},
+        components: {
+            Header
+        },
         computed: {},
         beforeMount() {},
         mounted() {
         },
         methods: {
-                setClickNum(num){
+            setClickNum(num){
                     // window.localStorage.clear();
                     this.ClickNum=num;
                     this.$emit('switchNum',num);
                 },
-               changetheme(){
-                this.index++;
-                if(this.index>=this.themes.length){
-                    this.index=0;
-                }
-                document.documentElement.setAttribute('data-theme', this.themes[this.index]);
-            },
             back(){
                 window.history.back();
             }
@@ -58,19 +52,6 @@
 @import '../../assets/css/variable';
 @import '../../assets/css/mixin.scss';
 .header{
-    width: 100%;
-    position: relative;
-    z-index: 999;
-    height: 100px;
-    @include bg-color();
-    display: flex;
-    justify-content: space-between;
-    font-size: 30px;
-    .header-left,.header-right{
-        margin-top: 8px;
-        width: 84px;
-        height: 84px;
-    }
     .header-left{
         @include bg_img('../../assets/images/back')
     }

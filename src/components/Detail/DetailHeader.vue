@@ -1,13 +1,14 @@
 <!--  -->
 <template>
-    <div class="header" @click="changetheme">
-        <div class="header-left" @click.stop="back"></div>
-        <div class="header-title">{{title}}</div>
-        <div class="header-right"></div>
-    </div>
+    <Header class="header">
+        <div slot="left" class="header-left" @click.stop="back"></div>
+        <div slot="center" class="header-title">{{title}}</div>
+        <div slot="right" class="header-right"></div>
+    </Header>
 </template>
 
 <script>
+import Header from './../Header'
     export default {
         name:'SubHeader',
         props:{
@@ -19,23 +20,18 @@
         },
         data () {
             return {
-                themes:['theme','theme1','theme2'],
-                index:0,
+               
             };
         },
-        components: {},
+        components: {
+            Header,
+
+        },
         computed: {},
         beforeMount() {},
         mounted() {
         },
         methods: {
-               changetheme(){
-                this.index++;
-                if(this.index>=this.themes.length){
-                    this.index=0;
-                }
-                document.documentElement.setAttribute('data-theme', this.themes[this.index]);
-            },
             back(){
                 window.history.back();
             }
@@ -49,20 +45,6 @@
 @import '../../assets/css/variable';
 @import '../../assets/css/mixin';
 .header{
-    width: 100%;
-    position: relative;
-    z-index: 999;
-    height: 100px;
-    // background-color: #f00;
-    @include bg-color();
-    display: flex;
-    justify-content: space-between;
-    font-size: 30px;
-    .header-left,.header-right{
-        margin-top: 8px;
-        width: 84px;
-        height: 84px;
-    }
     .header-left{
         @include bg_img('../../assets/images/back')
     }
