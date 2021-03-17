@@ -22,7 +22,7 @@
             </ul>
         </div>
         <ul class="search-history">
-            <li v-for="value in searchHistory" :key="value">
+            <li v-for="value in searchHistory" :key="value" @click.stop="selectHistory(value)">
             <div class="history-left">
                 <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMCI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSIjYzljYWNhIiBkPSJNMTUgMzBDNi43MTYgMzAgMCAyMy4yODQgMCAxNVM2LjcxNiAwIDE1IDBzMTUgNi43MTYgMTUgMTUtNi43MTYgMTUtMTUgMTVtMC0yOEM3LjgyIDIgMiA3LjgyIDIgMTVzNS44MiAxMyAxMyAxMyAxMy01LjgyIDEzLTEzUzIyLjE4IDIgMTUgMm03IDE2aC04YTEgMSAwIDAgMS0xLTFWN2ExIDEgMCAxIDEgMiAwdjloN2ExIDEgMCAxIDEgMCAyIi8+PC9zdmc+" alt="">
                     <p>{{value}}</p>
@@ -86,6 +86,10 @@ import {getLocalStorage,setLocalStorage} from '../tools/tools'
                     }
                 })
                 setLocalStorage('searchHistory',this.searchHistory)
+            },
+            selectHistory(name){
+                this.keyword=name;
+                this.search();
             },
             selectHot(name){
                 this.keyword=name;

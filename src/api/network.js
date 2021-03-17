@@ -25,6 +25,9 @@ axios.interceptors.response.use(function (response) {
   if(count===0){
     Vue.hiddenLoading();
   }
+  setTimeout(function(){
+    Vue.hiddenLoading();
+  },10000);
   return response;
 }, function (error) {
   // 对响应错误做点什么
