@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Vue from 'vue'
-axios.defaults.baseURL = 'http://10.117.20.147:3000';
+axios.defaults.baseURL = 'http://39.108.185.160:3000';
 axios.defaults.timeout = 10000;
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';

@@ -18,7 +18,7 @@ import IScroll from 'iscroll/build/iscroll-probe'
         mounted() {
             this. iscroll = new IScroll(this.$refs.wrapper, {
             //点击失效问题
-            // click:true, 
+            click:true, 
             mouseWheel: true,
             scrollbars: false,
             probeType: 3,
