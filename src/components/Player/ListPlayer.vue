@@ -2,7 +2,7 @@
 <template>
     <transition v-bind:css="false"
                 v-on:enter="enter"
-                v-on:leave="leave"  >
+                v-on:leave="leave">
     <div class="list-player" v-show="isListPlay">
         <div class="player-wrapper">
             <div class="player-top">
@@ -19,6 +19,8 @@
             <div class="player-middle">
                 <ScrollView ref="list">
                     <ul ref="play">
+                           <transition-group 
+                v-on:leave="leaveLeft">
                         <li class="item" v-for="(value,index) in songs" :key="value.id" @click="selectMusic(index)">
                             <div class="item-left">
                                 <div class="item-play" @click.stop="togglePlay" v-show="index===currentIndex"></div>
@@ -29,6 +31,7 @@
                                 <div class="item-del" @click.stop="del(index)"></div>
                             </div>
                         </li>
+                           </transition-group>
                     </ul>
                 </ScrollView>
             </div>
@@ -133,17 +136,22 @@ import modeType from './../../store/modeType'
             enter(el, done){
                 // el.offsetWidth;
                 // el.offsetHeight;
-                Velocity(el,"transition.perspectiveUpIn", { duration: 500 },function(){
+                Velocity(el,"transition.slideUpBigIn", { duration: 300 },function(){
                    done();
                });
                 //注意点: 动画执行完毕之后一定要调用done回调函数
                 // done();
             },
-            leave(el){
-               Velocity(el,"transition.perspectiveDownOut", { duration: 500 },function(){
+            leave(el,done){
+               Velocity(el,"transition.slideDownBigOut", { duration: 300 },function(){
                    done();
                });
-            }
+            },
+            leaveLeft(el,done){
+               Velocity(el,"callout.pulse", { duration: 600 },function(){
+                   done();
+               });
+            },
         },
         watch: {
              favoriteList(newvalue,oldvalue){

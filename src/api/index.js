@@ -27,12 +27,12 @@ export const getLetterSingers = (letter) => {
     return new Promise(function (resolve, reject) {
         let letterSingers=[];
       Network.all([
-        Network.get(`/artist/list?offset=0&limit=5&type=1&area=7&initial=${letter}`),
-        Network.get(`/artist/list?offset=0&limit=5&type=2&area=7&initial=${letter}`),
-        Network.get(`/artist/list?offset=0&limit=5&type=1&area=96&initial=${letter}`),
-        Network.get(`/artist/list?offset=0&limit=5&type=2&area=96&initial=${letter}`),
-        Network.get(`/artist/list?offset=0&limit=5&type=1&area=8&initial=${letter}`),
-        Network.get(`/artist/list?offset=0&limit=5&type=2&area=8&initial=${letter}`),
+        Network.get(`/artist/list?offset=0&limit=1&type=1&area=7&initial=${letter}`),
+        Network.get(`/artist/list?offset=0&limit=1&type=2&area=7&initial=${letter}`),
+        Network.get(`/artist/list?offset=0&limit=1&type=1&area=96&initial=${letter}`),
+        Network.get(`/artist/list?offset=0&limit=1&type=2&area=96&initial=${letter}`),
+        Network.get(`/artist/list?offset=0&limit=1&type=1&area=8&initial=${letter}`),
+        Network.get(`/artist/list?offset=0&limit=1&type=2&area=8&initial=${letter}`),
       ])
         .then(function (result) {
         result.forEach(function(value){

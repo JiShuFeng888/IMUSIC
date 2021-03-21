@@ -116,6 +116,9 @@ import Scrollview from '../components/Scrollview'
     height: 100%;
     overflow: hidden;
 }
+
+</style>
+<style>
 .v-enter{
     transform: translateX(100%);
 }
@@ -123,7 +126,7 @@ import Scrollview from '../components/Scrollview'
     transform: translateX(0%);
 }
 .v-enter-active{
-    transition: all 0.5s;
+    transition: all 1s;
 }
 .v-leave{
         transform: translateX(0%);
@@ -132,6 +135,6 @@ import Scrollview from '../components/Scrollview'
         transform: translateX(100%);
 }
 .v-leave-active{
-    transition: all 0.5s;
+    transition: all 1s;
 }
 </style>

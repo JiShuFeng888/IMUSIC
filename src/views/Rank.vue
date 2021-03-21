@@ -6,7 +6,7 @@
         <ScrollView>
             <ul class="">
                 <li v-for="(value,key) in category.titles" :key="key"> 
-                    <h3 class="group-title" v-if="value!=='官方榜'">{{value}}</h3>
+                    <h3 class="group-title" v-show="value!=='官方榜'">{{value}}</h3>
                     <!-- <ul class="normal-group" v-if="value==='官方榜'">
                         <li v-for="obj in category[key]" :key="obj.id">
                             <div class="rank-left">
@@ -15,7 +15,7 @@
                             <div class="rank-right"></div>
                         </li>
                     </ul> -->
-                     <ul class="other-group"  v-if="value!=='官方榜'">
+                     <ul class="other-group"  v-show="value!=='官方榜'">
                         <li v-for="obj in category[key]" :key="obj.id" @click.stop="selectMusic(obj.id)">
                             <div class="rank-top">
                                 <img v-lazy="obj.rank.coverImgUrl" alt="">
@@ -148,6 +148,9 @@ import ScrollView from '../components/Scrollview'
     }    
 
 }
+
+</style>
+<style>
 .v-enter{
     transform: translateX(100%);
 }

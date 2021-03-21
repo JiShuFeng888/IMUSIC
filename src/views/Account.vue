@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-    <transition appear>
+    <transition>
         <div class="account">
             <AccountHeader @switchNum="switchNum"></AccountHeader>
             <AccountBottom :num="num"></AccountBottom>
@@ -42,33 +42,12 @@ import AccountBottom from './../components/Account/AccountBottom'
 @import '../assets/css/mixin.scss';
 @import '../assets/css/variable.scss';
 .account{
-    background-color: #fff;
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .v-enter{
     transform: translateX(100%);
 }
@@ -87,4 +66,23 @@ import AccountBottom from './../components/Account/AccountBottom'
 .v-leave-active{
     transition: all 0.5s;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>

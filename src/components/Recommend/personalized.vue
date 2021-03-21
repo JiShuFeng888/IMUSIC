@@ -86,7 +86,7 @@
             img{
                 width: 200px;
                 height: 200px;
-                border-radius: 10px;
+                border-radius: 20px;
             }
             p{
                 @include clamp(2);

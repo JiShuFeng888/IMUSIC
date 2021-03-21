@@ -39,11 +39,13 @@
 </script>
 
 <style lang='scss' scoped>
+@import '../../assets/css/mixin';
 .detail-top{
     width: 100%;
     height:500px;
     overflow: hidden;
     position: relative;
+    @include bg_sub_color();
     img{
         width: 100%;
     }

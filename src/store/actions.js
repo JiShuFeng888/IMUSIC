@@ -1,4 +1,4 @@
-import {SET_FULL_SCREEN,SET_MINI_PLAYER,SET_PLAYING,SET_MODE_TYPE,SET_LIST_PLAY,SET_SONG_DETAIL,SET_SONG_LYRIC,SET_DEL_SONG,SET_CURRENT_INDEX,SET_CURRENT_TIME,SET_FAVORITE_LIST,SET_FAVORITE_SONG,SET_HISTORY_LIST,SET_HISTORY_SONG,SET_IS_FIRST_PLAY} from './mutations-type'
+import {SET_FULL_SCREEN,SET_MINI_PLAYER,SET_PLAYING,SET_MODE_TYPE,SET_LIST_PLAY,SET_SONG_DETAIL,SET_SONG_LYRIC,SET_DEL_SONG,SET_CURRENT_INDEX,SET_CURRENT_TIME,SET_FAVORITE_LIST,SET_FAVORITE_SONG,SET_HISTORY_LIST,SET_HISTORY_SONG,SET_IS_FIRST_PLAY,SET_CURRENT_SONG} from './mutations-type'
 import { getSongDetail,getSongLyric,getSongUrl} from "./../api/index";
 export default{
       setFullScreen({commit},flag){
@@ -60,7 +60,7 @@ export default{
       setDelAllSong({commit},index){
         commit(SET_DEL_SONG,index);
       },
-      setCurrentIndex({commit},index){
+       setCurrentIndex({commit},index){
         commit(SET_CURRENT_INDEX,index);
       },
       setCurrentTime({commit},time){
@@ -81,8 +81,8 @@ export default{
       setIsFirstPlay({commit},flag){
         commit(SET_IS_FIRST_PLAY,flag);
       },
-      setcurrentSong({commit},flag){
-        commit(SET_IS_FIRST_PLAY,flag);
+      setCurrentSong({commit},song){
+        commit(SET_CURRENT_SONG,song);
       },
     
 }

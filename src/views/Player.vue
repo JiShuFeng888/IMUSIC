@@ -130,7 +130,7 @@ import {getRandomIntInclusive,setLocalStorage,getLocalStorage} from  './../tools
     transform: translateX(0%);
 }
 .v-enter-active{
-    transition: all 0.5s;
+    transition: all 1s;
 }
 .v-leave{
         transform: translateX(0%);
@@ -139,6 +139,6 @@ import {getRandomIntInclusive,setLocalStorage,getLocalStorage} from  './../tools
         transform: translateX(100%);
 }
 .v-leave-active{
-    transition: all 0.5s;
+    transition: all 1s;
 }
 </style>

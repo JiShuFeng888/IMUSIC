@@ -236,6 +236,9 @@ import Scrollview from '../components/Scrollview'
     }
     }
 }
+
+</style>
+<style>
 .v-enter{
     transform: translateX(100%);
 }

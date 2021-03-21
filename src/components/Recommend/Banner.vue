@@ -55,10 +55,14 @@ import 'swiper/css/swiper.css'
 </script>
 
 <style lang='scss' scoped>
+@import '../../assets/css/mixin.scss';
 .banner{   
     .item{
+        @include bg_sub_color();
+        text-align: center;
         img{
-            width: 100%;
+            border-radius: 50px;
+            width: 95%;
             height: 300px;
         }
     }

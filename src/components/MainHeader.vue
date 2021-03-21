@@ -1,13 +1,14 @@
 <template>
     <Header class="header">
-        <div slot="left" class="header-left"></div>
-        <p slot="center" class="header-title">IMUSIC</p>
+        <div slot="left" class="header-left" @click.stop="playerClick"></div>
+        <p slot="center" class="header-title"></p>
         <div slot="right" class="header-right" @click.stop="accountClick"></div>
     </Header>
 </template>
 
 <script>
-import Header from './Header'
+import Header from './Header';
+import{mapActions,mapGetters} from 'vuex';
     export default {
         name:'',
         props:[''],
@@ -20,13 +21,26 @@ import Header from './Header'
             Header,
 
         },
-        computed: {},
+        computed: {
+          ...mapGetters([
+            'isPlaying'
+          ])
+        },
         beforeMount() {},
         mounted() {},
         methods: {
-                 accountClick(){
-                     this.$router.push('/account');
-                 },
+          ...mapActions([
+            'setFullScreen'
+          ]),
+          accountClick(){
+              this.$router.push('/account');
+          },
+          playerClick(){
+              if(this.isPlaying){
+                this.setFullScreen(true);
+                console.log("asd ");
+              }
+          }
 
         },
         watch: {}

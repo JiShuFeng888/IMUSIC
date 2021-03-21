@@ -115,9 +115,11 @@ import {mapActions, mapGetters} from 'vuex';
     .item{
         h3{
             @include font_size($font_medium);
+             @include clamp(1);
         }
         p{
             @include font_size($font_small);
+             @include clamp(1);
             margin-top: 10px;
             opacity: 0.8;
         }   

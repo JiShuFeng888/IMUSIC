@@ -1,8 +1,8 @@
 <!--  -->
 <template>
     <transition v-bind:css="false"
-                v-on:enter="enter"
-                v-on:leave="leave"  >
+                v-on:before-enter="enter"
+                v-on:leave="leave">
     <div class="normal-player" v-show="this.isFullScreen">
     <!-- <div class="normal-player" v-show="this.$store.getters.isFullScreen"> -->
         <div class="player-wrapper">
@@ -64,13 +64,13 @@ import 'velocity-animate/velocity.ui'
             enter(el, done){
                 // el.offsetWidth;
                 // el.offsetHeight;
-               Velocity(el,"transition.fadeIn", { duration: 1000 },function(){
+               Velocity(el,"transition.slideUpBigIn", { duration: 500 },function(){
                    done();
                });
                 //注意点: 动画执行完毕之后一定要调用done回调函数
                 // done();
             },
-            leave(el){
+            leave(el,done){
                Velocity(el,"transition.fadeOut", { duration: 500 },function(){
                    done();
                });
@@ -99,6 +99,7 @@ import 'velocity-animate/velocity.ui'
     right: 0;
     bottom: 0;
     // background-color: cadetblue;
+        background-color: #000000;
     .player-wrapper{
         width: 100%;
         height: 100%;
@@ -111,12 +112,12 @@ import 'velocity-animate/velocity.ui'
         top: 0;
         bottom: 0;
         right: 0;
-        filter:blur(5px);
+        filter:blur(10px);
         // background-color: #000;
         img{
-            width: 120%;
+            width: 100%;
             height: 100%;
-            transform: scale(1.2,1.0);
+            transform: scale(1.5,1.1);
         }
     } 
 }

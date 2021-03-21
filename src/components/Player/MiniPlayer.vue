@@ -64,14 +64,14 @@ import 'velocity-animate/velocity.ui'
             enter(el, done){
                 // el.offsetWidth;
                 // el.offsetHeight;
-                Velocity(el,"transition.perspectiveUpIn", { duration: 500 },function(){
+                Velocity(el,"transition.slideUpBigIn", { duration: 300 },function(){
                    done();
                });
                 //注意点: 动画执行完毕之后一定要调用done回调函数
                 // done();
             },
             leave(el){
-               Velocity(el,"transition.perspectiveDownOut", { duration: 500 },function(){
+               Velocity(el,"transition.slideUpBigOut", { duration: 300 },function(){
                    done();
                });
             }
@@ -124,12 +124,13 @@ import 'velocity-animate/velocity.ui'
                 // align-items: center;
                 h3{
                     @include font_size($font_medium);
-                    @include font_color();
-
+                    color: #fff;
+                    @include clamp(1);
                 }
                 p{
                     @include font_size($font_medium_s);
-                    @include font_color();
+                    color: #fff;
+                    @include clamp(1);
                 }
             }
             img{

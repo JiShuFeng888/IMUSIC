@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex';
+import {mapActions, mapGetters,mapMutations} from 'vuex';
     export default {
         name:'SongList',
         props:{
@@ -32,8 +32,8 @@ import {mapActions, mapGetters} from 'vuex';
         computed: {
             ...mapGetters([
                 'favoriteList',
-                'historyList'
-
+                'historyList',
+                'currentIndex',
             ])
         },
         beforeMount() {},
@@ -44,17 +44,28 @@ import {mapActions, mapGetters} from 'vuex';
                 'setMiniPlayer',
                 'setSongDetail',
                 'setPlaying',
-                'setCurrentIndex'
+                'setCurrentIndex',
+                'setCurrentSong'
             ]),
-            
+            ...mapMutations([
+                // 'SET_SONG_DETAIL'
+            ]),
             selectMusic(id,index){
-                let ids=this.songs.map(function(value){
-                        return value.id;
+                console.log(index);
+                let list= this.songs.filter(function(value,index){
+                    // console.log(value.name);
+                        if(value.name!==""){
+                            return true;
+                        }
+                    })
+                let ids=list.map(function(value){
+                    return value.id;
                     })  
                 this.setSongDetail(ids);
+                // this.SET_SONG_DETAIL(list);
                 this.setPlaying(true);
-                this.setCurrentIndex(index);
                 this.setFullScreen(true)
+                this.setCurrentIndex(index);
             }
         },
         watch: {}
@@ -88,11 +99,13 @@ import {mapActions, mapGetters} from 'vuex';
                 h3{
                     @include font_size($font_large);    
                     @include font_color();
+                    @include clamp(1);
                 }
                 p{
                     @include font_size($font_medium);
                     margin-top: 20px;
                     @include font_color();
+                    @include clamp(1);
                 }
             }
         }

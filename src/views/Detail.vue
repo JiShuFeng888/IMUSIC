@@ -111,7 +111,6 @@ import Scrollview from '../components/Scrollview'
 <style lang='scss' scoped>
 @import '../assets/css/mixin.scss';
 .detail{
-    @include bg_sub_color();
     position: fixed;
     left: 0;
     top: 0;
@@ -119,6 +118,7 @@ import Scrollview from '../components/Scrollview'
     bottom: 0;
     z-index: 1999;
     .bottom{
+         @include bg_sub_color();
         position: fixed;
         top: 500px;
         left: 0;
