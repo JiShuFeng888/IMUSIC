@@ -38,7 +38,6 @@ import{mapActions,mapGetters} from 'vuex';
           playerClick(){
               if(this.isPlaying){
                 this.setFullScreen(true);
-                console.log("asd ");
               }
           }
 
