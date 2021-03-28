@@ -20,7 +20,7 @@ Vue.use(VueRouter)
 // }
 
 const routes = [
-  { path: '/', redirect: '/mv' },
+  { path: '/', redirect: '/recommend' },
   {
      path: '/recommend', component: Recommend ,
      children:[
