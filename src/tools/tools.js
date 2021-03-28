@@ -33,3 +33,24 @@ export const setLocalStorage = (key, value) => {
 export const getLocalStorage = (key) => {
   return JSON.parse(window.localStorage.getItem(key))
 }
+export const getFormattedNumber = (num)=>{
+    let res = 0;
+    if(num / 100000000 > 1){
+        let temp = num / 100000000 + "";
+        if(temp.indexOf(".") === -1){
+            res = num / 100000000 + "亿";
+        }else{
+            res = (num / 100000000).toFixed(1) + "亿";
+        }
+    }else if(num / 10000 > 1){
+        let temp = num / 10000 + "";
+        if(temp.indexOf(".") === -1){
+            res = num / 10000 + "万";
+        }else{
+            res = (num / 10000).toFixed(1) + "万";
+        }
+    }else{
+        res = num;
+    }
+    return res;
+}

@@ -49,7 +49,6 @@
         mounted() {},
         methods: {
             selectItem(id){
-                console.log(id);
                 this.$emit("select",id,this.type)
                 
             },

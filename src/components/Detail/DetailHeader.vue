@@ -3,19 +3,20 @@
     <Header class="header">
         <div slot="left" class="header-left" @click.stop="back"></div>
         <div slot="center" class="header-title">{{title}}</div>
-        <div slot="right" class="header-right"></div>
+        <div title slot="right" class="header-right"></div>
     </Header>
 </template>
 
 <script>
 import Header from './../Header'
+import {mapActions} from 'vuex'
     export default {
-        name:'SubHeader',
+        name:'detailHeader',
         props:{
             title:{
                 type:String,
-                default:'',
-                require:true
+                default:"",
+                // require:true
             }
         },
         data () {
@@ -34,7 +35,12 @@ import Header from './../Header'
         methods: {
             back(){
                 window.history.back();
-            }
+                this.setIsComment(false);
+            },
+           ...mapActions([
+            
+                'setIsComment'
+            ]),
         },
         watch: {}
     }

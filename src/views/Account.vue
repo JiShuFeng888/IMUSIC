@@ -66,23 +66,8 @@ import AccountBottom from './../components/Account/AccountBottom'
 .v-leave-active{
     transition: all 0.5s;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </style>
+
+
+
+

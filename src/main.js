@@ -8,6 +8,8 @@ import VueLazyload from 'vue-lazyload'
 import Loading from './plugin/loading/index'
 
 
+
+
 Vue.use(Loading, {
   title:'正在努力加载中...'
   

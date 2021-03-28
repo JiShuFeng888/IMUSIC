@@ -4,6 +4,7 @@
         <div class="search-box">
                 <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNiAyNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSIjYzljOWNhIiBkPSJNMjUuMTgxIDIzLjUzNWwtMS40MTQgMS40MTQtNy4zMTUtNy4zMTRBOS45NjYgOS45NjYgMCAwIDEgMTAgMjBDNC40NzcgMjAgMCAxNS41MjMgMCAxMFM0LjQ3NyAwIDEwIDBzMTAgNC40NzcgMTAgMTBjMCAyLjM0Mi0uODExIDQuNDktMi4xNiA2LjE5NWw3LjM0MSA3LjM0ek0xMCAyYTggOCAwIDEgMCAwIDE2IDggOCAwIDAgMCAwLTE2eiIvPjwvc3ZnPg==" alt="">
                 <input type="text" placeholder="搜索歌曲 歌手 专辑" v-model="keyword" v-throttle="search">
+                <span @click.stop="delword">X</span>
         </div>
         <div class="search-suggest" v-show="keyword!==''">
             <ScrollView>
@@ -116,6 +117,9 @@ import {getLocalStorage,setLocalStorage} from '../tools/tools'
                     .catch(function(err){
                         console.log(err);
                     })
+            },
+            delword(){
+                this.keyword=''
             }
         },
         watch: {},
@@ -152,6 +156,7 @@ import {getLocalStorage,setLocalStorage} from '../tools/tools'
     bottom: 0;
     @include bg_sub_color();
     .search-box{
+        position: relative;
         display: flex;
         align-items: center;
         margin: 40px 20px;
@@ -171,6 +176,21 @@ import {getLocalStorage,setLocalStorage} from '../tools/tools'
             border: none;
             outline: none;
             @include font_size($font_medium);
+        }
+        span{
+            position:absolute;
+            right: 30px;
+            top: 50%;
+            text-align: center;
+            color:#cccccc;
+            border: 2px solid #ccc;
+            border-radius: 15px;
+            transform:translateY(-50%);
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            display: block;
+            @include font_size($font_large);
         }
     }
     .search-suggest{

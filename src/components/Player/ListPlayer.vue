@@ -19,8 +19,7 @@
             <div class="player-middle">
                 <ScrollView ref="list">
                     <ul ref="play">
-                           <transition-group 
-                v-on:leave="leaveLeft">
+                           <transition-group name="one">
                         <li class="item" v-for="(value,index) in songs" :key="value.id" @click="selectMusic(index)">
                             <div class="item-left">
                                 <div class="item-play" @click.stop="togglePlay" v-show="index===currentIndex"></div>
@@ -300,5 +299,15 @@ import modeType from './../../store/modeType'
             }
         }
     }
+}
+
+.one-leave{
+        transform: translateX(0%);
+}
+.one-leave-to{
+        transform: translateX(80%);
+}
+.one-leave-active{
+    transition: all 0.4s;
 }
 </style>

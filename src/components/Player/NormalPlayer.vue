@@ -64,7 +64,7 @@ import 'velocity-animate/velocity.ui'
             enter(el, done){
                 // el.offsetWidth;
                 // el.offsetHeight;
-               Velocity(el,"transition.slideUpBigIn", { duration: 500 },function(){
+               Velocity(el,"transition.fadeIn", { duration: 500 },function(){
                    done();
                });
                 //注意点: 动画执行完毕之后一定要调用done回调函数
@@ -117,7 +117,7 @@ import 'velocity-animate/velocity.ui'
         img{
             width: 100%;
             height: 100%;
-            transform: scale(1.5,1.1);
+            transform: scale(2.2,1.1);
         }
     } 
 }

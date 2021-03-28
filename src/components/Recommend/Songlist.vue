@@ -1,4 +1,3 @@
-<!--  -->
 <template>
     <div class="song">
         <div class="song-top">

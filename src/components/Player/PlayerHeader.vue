@@ -6,7 +6,7 @@
             <h3>{{currentSong.name}}</h3>
             <p>{{currentSong.singer}}</p>
         </div>
-        <div class="header-right"></div>
+        <div class="header-right" @click.stop="songComments(currentSong.id)"></div>
     </div>
 </template>
 
@@ -30,7 +30,7 @@ import {mapActions,mapGetters} from 'vuex';
         components: {},
         computed: {
            ...mapGetters([
-                'currentSong'
+                'currentSong',
             ])
         },
         beforeMount() {},
@@ -40,10 +40,18 @@ import {mapActions,mapGetters} from 'vuex';
             ...mapActions([
                 'setFullScreen',
                 'setMiniPlayer',
+                'setIsComment'
             ]),
             closeMusic(){
                 this.setFullScreen(false);
                 this.setMiniPlayer(true);
+            },
+            songComments(id){
+                this.$router.push({
+                    path:`/songComment/${id}`
+                })   
+                this.setIsComment(true);
+
             }
         },
         watch: {}
@@ -73,7 +81,7 @@ import {mapActions,mapGetters} from 'vuex';
         @include bg_img('../../assets/images/down')
     }
     .header-right{
-        // @include bg_img('../../assets/images/more')
+        @include bg_img('../../assets/images/logo')
     }
     .header-title{
         display: flex;

@@ -37,7 +37,7 @@ import Scrollview from '../components/Scrollview'
                 getPlayList({id:this.$route.params.id})
                     .then((data)=>{
                         this.playlist=data.playlist
-                        console.log(this.playlist);
+                        // console.log(this.playlist);
                         // console.log(this.$route);
                     })
                     .catch((error)=>{
@@ -111,6 +111,7 @@ import Scrollview from '../components/Scrollview'
 <style lang='scss' scoped>
 @import '../assets/css/mixin.scss';
 .detail{
+    overflow: hidden;
     position: fixed;
     left: 0;
     top: 0;

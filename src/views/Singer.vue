@@ -167,16 +167,15 @@ import Scrollview from '../components/Scrollview'
 <style lang='scss' scoped>
 @import '../assets/css/mixin.scss';
 .singer{
-    width: 100%;
-    height: 100%;
-    .singer-wrapper{
-        position: fixed;
+    position: fixed;
         top: 184px;
         left: 0;
         right: 0;
         bottom: 0;
         overflow: hidden;
-
+    .singer-wrapper{
+        width: 100%;
+        height: 100%;
     @include bg_sub_color();
     .list-wrapper{
         .list-group{

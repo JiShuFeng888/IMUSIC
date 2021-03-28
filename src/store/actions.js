@@ -1,4 +1,4 @@
-import {SET_FULL_SCREEN,SET_MINI_PLAYER,SET_PLAYING,SET_MODE_TYPE,SET_LIST_PLAY,SET_SONG_DETAIL,SET_SONG_LYRIC,SET_DEL_SONG,SET_CURRENT_INDEX,SET_CURRENT_TIME,SET_FAVORITE_LIST,SET_FAVORITE_SONG,SET_HISTORY_LIST,SET_HISTORY_SONG,SET_IS_FIRST_PLAY,SET_CURRENT_SONG} from './mutations-type'
+import {SET_FULL_SCREEN,SET_MINI_PLAYER,SET_PLAYING,SET_MODE_TYPE,SET_LIST_PLAY,SET_SONG_DETAIL,SET_SONG_LYRIC,SET_DEL_SONG,SET_CURRENT_INDEX,SET_CURRENT_TIME,SET_FAVORITE_LIST,SET_FAVORITE_SONG,SET_HISTORY_LIST,SET_HISTORY_SONG,SET_CURRENT_SONG,SET_IS_COMMENT} from './mutations-type'
 import { getSongDetail,getSongLyric,getSongUrl} from "./../api/index";
 export default{
       setFullScreen({commit},flag){
@@ -78,11 +78,11 @@ export default{
       setHistoryList({commit},list){
         commit(SET_HISTORY_LIST,list);
       },
-      setIsFirstPlay({commit},flag){
-        commit(SET_IS_FIRST_PLAY,flag);
-      },
       setCurrentSong({commit},song){
         commit(SET_CURRENT_SONG,song);
+      },
+      setIsComment({commit},song){
+        commit(SET_IS_COMMENT,song);
       },
     
 }

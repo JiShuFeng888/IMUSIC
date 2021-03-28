@@ -51,7 +51,7 @@ import {mapActions, mapGetters,mapMutations} from 'vuex';
                 // 'SET_SONG_DETAIL'
             ]),
             selectMusic(id,index){
-                console.log(index);
+                // console.log(index);
                 let list= this.songs.filter(function(value,index){
                     // console.log(value.name);
                         if(value.name!==""){

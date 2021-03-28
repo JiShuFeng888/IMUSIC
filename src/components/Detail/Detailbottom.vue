@@ -36,7 +36,9 @@ import {mapActions, mapGetters} from 'vuex';
            ])
         },
         beforeMount() {},
-        mounted() {},
+        mounted() {
+        
+        },
         methods: {
             ...mapActions([
                 'setFullScreen',
@@ -44,23 +46,26 @@ import {mapActions, mapGetters} from 'vuex';
                  'setPlaying',
                  'setSongDetail',
                  'setListPlay',
-                 'setIsFirstPlay',
                  'setCurrentIndex',
                  
 
             ]),
             selectMusic(id,index){
+                let list= this.playlist.filter(function(value,index){
+                    // console.log(value.name);
+                        if(value.name!==""){
+                            return true;
+                        }
+                    })
+                let ids=list.map(function(value){
+                        return value.id
+                });
+                    //ids已经是一个数组了
+                this.setSongDetail(ids);
                 this.setFullScreen(true);
                 // this.$store.dispatch('setFullScreen',true);
                 this.setPlaying(true);
                 // if(this.isFirstPlay){
-                    this.setIsFirstPlay(false);
-                    let ids=this.playlist.map(function(value){
-                        return value.id
-                    });
-                    //ids已经是一个数组了
-                    this.setSongDetail(ids);
-            // }
                 this.setCurrentIndex(index);
             },
             selectAllMusic(){

@@ -23,8 +23,9 @@ export default{
           singer: '',
           picUrl: null
         }
+
         if (state.songs.length !== 0) {
-          obj = state.songs[state.currentIndex]
+          obj = state.songs[state.currentIndex]   
         }
         return obj;
       },
@@ -45,5 +46,8 @@ export default{
       },
       isFirstPlay(state){
         return state.isFirstPlay;
+      },
+      isComment(state){
+        return state.isComment;
       }
   }

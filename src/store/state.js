@@ -12,6 +12,6 @@ export default{
         curTime:0,
         favoriteList:[],
         historyList:[],
-        isFirstPlay:true,
+        isComment:false,
 
 }

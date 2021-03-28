@@ -1,4 +1,4 @@
-import {SET_FULL_SCREEN,SET_MINI_PLAYER,SET_PLAYING,SET_MODE_TYPE,SET_LIST_PLAY,SET_SONG_DETAIL,SET_SONG_LYRIC,SET_DEL_SONG,SET_CURRENT_INDEX,SET_CURRENT_TIME,SET_FAVORITE_LIST,SET_FAVORITE_SONG,SET_HISTORY_LIST,SET_HISTORY_SONG,SET_IS_FIRST_PLAY,SET_CURRENT_SONG} from './mutations-type'
+import {SET_FULL_SCREEN,SET_MINI_PLAYER,SET_PLAYING,SET_MODE_TYPE,SET_LIST_PLAY,SET_SONG_DETAIL,SET_SONG_LYRIC,SET_DEL_SONG,SET_CURRENT_INDEX,SET_CURRENT_TIME,SET_FAVORITE_LIST,SET_FAVORITE_SONG,SET_HISTORY_LIST,SET_HISTORY_SONG,SET_CURRENT_SONG,SET_IS_COMMENT} from './mutations-type'
 export default{
         [SET_FULL_SCREEN](state,flag){
           state.isFullScreen=flag;
@@ -52,13 +52,13 @@ export default{
                 state.currentIndex=state.songs.length-1;
               }else if(index>state.songs.length-1){
                 state.currentIndex=0;
-                // console.log(index);
+                console.log(index);
                 // console.log(state.songs.length);
               }else{
                 state.currentIndex=index;
                 console.log(state.currentIndex);
               }
-            },250)
+            },400)
           
         },
         [SET_CURRENT_TIME](state,time){
@@ -106,11 +106,11 @@ export default{
         [SET_HISTORY_LIST](state,list){
           state.historyList=list;
         },
-        [SET_IS_FIRST_PLAY](state,flag){
-          state.isFirstPlay=flag;
-        },
         [SET_CURRENT_SONG](state,song){
-          state.currentSong=song;
+            state.currentSong=song;
         },
+        [SET_IS_COMMENT](state,song){
+          state.isComment=song;
+        }
         
 }

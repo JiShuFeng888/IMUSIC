@@ -96,6 +96,7 @@ import {getRandomIntInclusive,setLocalStorage,getLocalStorage} from  './../tools
             },
             currentSong(newvalue,oldvalue){
                  this.$refs.audio.ondurationchange=()=>{
+                    // console.log(this.currentSong);
                     this.totalTime=this.$refs.audio.duration;
                     this.setHistorySong(this.currentSong);
                     if(this.isPlaying){
@@ -123,22 +124,5 @@ import {getRandomIntInclusive,setLocalStorage,getLocalStorage} from  './../tools
 </script>
 
 <style lang='scss' scoped>
-.v-enter{
-    transform: translateX(100%);
-}
-.v-enter-to{
-    transform: translateX(0%);
-}
-.v-enter-active{
-    transition: all 1s;
-}
-.v-leave{
-        transform: translateX(0%);
-}
-.v-leave-to{
-        transform: translateX(100%);
-}
-.v-leave-active{
-    transition: all 1s;
-}
+
 </style>
