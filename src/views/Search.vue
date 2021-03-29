@@ -45,7 +45,7 @@ import {getLocalStorage,setLocalStorage} from '../tools/tools'
         name:'',
         props:[''],
         data () {
-            return {    
+            return {
                 keyword:'',
                 songs:[],
                 hots:[],
@@ -60,7 +60,7 @@ import {getLocalStorage,setLocalStorage} from '../tools/tools'
         mounted() {},
         created() {
             getSearchHot()
-                .then((data)=>{ 
+                .then((data)=>{
                     this.hots=data.result.hots;
                 })
                 .catch((err)=>{
@@ -102,7 +102,7 @@ import {getLocalStorage,setLocalStorage} from '../tools/tools'
                 this.setFullScreen(true)
 
                 if(this.searchHistory.includes(this.keyword)){
-                    return 
+                    return
                 }
                 this.searchHistory.push(this.keyword)
                 setLocalStorage('searchHistory',this.searchHistory)
@@ -165,7 +165,7 @@ import {getLocalStorage,setLocalStorage} from '../tools/tools'
         img{
             width: 40px;
             height: 40px;
-          
+
             margin-right: 20px;
         }
         input{
@@ -222,7 +222,7 @@ import {getLocalStorage,setLocalStorage} from '../tools/tools'
         }
     }
     .search-hot{
-        
+
         h3{
                 @include font_size($font_medium);
                 @include font_color();
@@ -242,7 +242,7 @@ import {getLocalStorage,setLocalStorage} from '../tools/tools'
                 @include font_color();
             }
         }
-    }   
+    }
     .search-history{
             padding:0 30px;
         li{
@@ -258,11 +258,10 @@ import {getLocalStorage,setLocalStorage} from '../tools/tools'
                     width: 40px;
                     height: 40px;
                 }
-                    p{
+              p{
                     margin-left: 20px;
                     @include font_size($font_medium);
                     @include font_color();
-
                 }
             }
             .history-right{
@@ -270,7 +269,7 @@ import {getLocalStorage,setLocalStorage} from '../tools/tools'
                     margin-top: 8px;
                     width: 30px;
                     height: 30px;
-                }                
+                }
             }
         }
     }
