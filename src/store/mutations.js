@@ -29,7 +29,7 @@ export default{
         },
         [SET_SONG_DETAIL](state,flag){
           state.songs=flag;
-          // console.log(state.songs);
+          console.log(state.songs);
         },
         [SET_SONG_LYRIC](state,lyric){
           state.currentLyric=lyric;
@@ -46,20 +46,19 @@ export default{
         },
         [SET_CURRENT_INDEX](state,index){
 
-            setTimeout(function(){
               if(index<0){
                 // console.log(index);
                 state.currentIndex=state.songs.length-1;
               }else if(index>state.songs.length-1){
                 state.currentIndex=0;
                 console.log(index);
-                // console.log(state.songs.length);
+                console.log(state.songs.length);
               }else{
                 state.currentIndex=index;
                 console.log(state.currentIndex);
               }
-            },400)
-          
+
+
         },
         [SET_CURRENT_TIME](state,time){
           state.curTime=time;
@@ -112,5 +111,5 @@ export default{
         [SET_IS_COMMENT](state,song){
           state.isComment=song;
         }
-        
+
 }

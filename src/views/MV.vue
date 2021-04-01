@@ -21,56 +21,55 @@
         </div>
         <transition>
             <router-view>
-                
+
             </router-view>
         </transition>
     </div>
 </template>
 
 <script>
-import { getFormattedNumber } from "../tools/tools";
-import {getMvSongs} from './../api/index';
-import ScrollView from '../components/Scrollview';
+import { getFormattedNumber } from '../tools/tools'
+import { getMvSongs } from './../api/index'
+import ScrollView from '../components/Scrollview'
 
-
-    export default {
-        name:'',
-        props:[''],
-        data () {
-            return {
-                mvsongs:[]
-                };
-        },
-        components: {
-            ScrollView,
-        },
-        computed: {},
-        beforeMount() {},
-        mounted() {},
-        methods: {
-            selectMv(id){
-                 this.$router.push({
-                    path:`/mv/mvdetail/${id}/`
-                })
-            }
-        },
-        watch: {},
-        created(){
-            getMvSongs()
-            .then((result)=>{
-                this.mvsongs=result.data;
-                // console.log(this.mvsongs);
-            })
-            .catch((error)=>{
-                console.log(error);
-            })
-        },
-        filters: {
-        // key: 过滤器名称
-        // value: 过滤器处理函数
-        'formartNum': getFormattedNumber
+export default {
+  name: '',
+  props: [''],
+  data () {
+    return {
+      mvsongs: []
     }
+  },
+  components: {
+    ScrollView
+  },
+  computed: {},
+  beforeMount () {},
+  mounted () {},
+  methods: {
+    selectMv (id) {
+      this.$router.push({
+        path: `/mv/mvdetail/${id}/`
+      })
     }
+  },
+  watch: {},
+  created () {
+    getMvSongs()
+      .then((result) => {
+        this.mvsongs = result.data
+        // console.log(this.mvsongs);
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  },
+  filters: {
+    // key: 过滤器名称
+    // value: 过滤器处理函数
+    formartNum: getFormattedNumber
+  }
+}
 
 </script>
 
@@ -157,7 +156,7 @@ import ScrollView from '../components/Scrollview';
                     .playcount{
                         @include font_size($font_medium_s);
                         @include clamp(1)
-                        
+
                     }
                 }
             }

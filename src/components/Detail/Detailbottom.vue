@@ -1,10 +1,10 @@
 <!--  -->
 <template>
-    <ul class="detail-bottom"> 
+    <ul class="detail-bottom">
        <li class="bottom-top" @click="selectAllMusic">
            <div class="bottom-icon"></div>
            <div class="bottom-title">播放全部</div>
-       </li> 
+       </li>
        <li v-for="(value,index) in playlist" :key="value.id" class="item" @click="selectMusic(value.id,index)">
            <h3>{{value.name}}</h3>
            <p>{{value.al.name}}-{{value.ar[0].name}}</p>
@@ -13,77 +13,75 @@
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex';
+import { mapActions, mapGetters } from 'vuex'
 
-    export default {
-        name:'',
-        props:{
-            playlist:{
-                type:Array,
-                default:()=>[],
-                require:true  
-            }
-        },
-        data () {
-            return {
-
-            };
-        },
-        components: {},
-        computed: {
-           ...mapGetters([
-               'isFirstPlay',
-           ])
-        },
-        beforeMount() {},
-        mounted() {
-        
-        },
-        methods: {
-            ...mapActions([
-                'setFullScreen',
-                 'setMiniPlayer',
-                 'setPlaying',
-                 'setSongDetail',
-                 'setListPlay',
-                 'setCurrentIndex',
-                 
-
-            ]),
-            selectMusic(id,index){
-                let list= this.playlist.filter(function(value,index){
-                    // console.log(value.name);
-                        if(value.name!==""){
-                            return true;
-                        }
-                    })
-                let ids=list.map(function(value){
-                        return value.id
-                });
-                    //ids已经是一个数组了
-                this.setSongDetail(ids);
-                this.setFullScreen(true);
-                // this.$store.dispatch('setFullScreen',true);
-                this.setPlaying(true);
-                // if(this.isFirstPlay){
-                this.setCurrentIndex(index);
-            },
-            selectAllMusic(){
-                this.setFullScreen(true);
-                // this.setMiniPlayer(false);
-                this.setPlaying(true);
-                let ids=this.playlist.map(function(value){
-                    return value.id
-                });
-                // console.log(ids);
-                //ids已经是一个数组了
-                this.setSongDetail(ids);
-
-            }
-        },
-        watch: {}
+export default {
+  name: '',
+  props: {
+    playlist: {
+      type: Array,
+      default: () => [],
+      require: true
+    }
+  },
+  data () {
+    return {
 
     }
+  },
+  components: {},
+  computed: {
+    ...mapGetters([
+      'isFirstPlay'
+    ])
+  },
+  beforeMount () {},
+  mounted () {
+
+  },
+  methods: {
+    ...mapActions([
+      'setFullScreen',
+      'setMiniPlayer',
+      'setPlaying',
+      'setSongDetail',
+      'setListPlay',
+      'setCurrentIndex'
+
+    ]),
+    async selectMusic (id, index) {
+      const list = this.playlist.filter(function (value, index) {
+        // console.log(value.name);
+        if (value.name !== '') {
+          return true
+        }
+      })
+      const ids = list.map(function (value) {
+        return value.id
+      })
+      // ids已经是一个数组了
+      await this.setSongDetail(ids)
+      this.setCurrentIndex(index)
+      this.setPlaying(true)
+      this.setFullScreen(true)
+      // this.$store.dispatch('setFullScreen',true);
+    },
+    selectAllMusic () {
+      this.setFullScreen(true)
+      // this.setMiniPlayer(false);
+      this.setPlaying(true)
+      const ids = this.playlist.map(function (value) {
+        return value.id
+      })
+      // console.log(ids);
+      // ids已经是一个数组了
+      this.setSongDetail(ids)
+
+    }
+  },
+  watch: {}
+
+}
 
 </script>
 
@@ -127,7 +125,7 @@ import {mapActions, mapGetters} from 'vuex';
              @include clamp(1);
             margin-top: 10px;
             opacity: 0.8;
-        }   
+        }
     }
 
 }

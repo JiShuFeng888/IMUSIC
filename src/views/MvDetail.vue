@@ -16,47 +16,44 @@
 
 <script>
 import Header from './../components/Detail/DetailHeader'
-import{getMvDetail} from './../api/index'
+import { getMvDetail } from './../api/index'
 import Scrollview from '../components/Scrollview'
 import CommentList from './../components/CommentList/commentList'
-    export default {
-        name:'',
-        props:[''],
-        data () {
-            return {
-                mv:{},
-                switchNum:0,
-            
-            };
-        },
-        components: {
-            Header,
-            Scrollview,
-            CommentList,
-        },
-        computed: {},
-        beforeMount() {},
-        mounted() {
-        },
-        methods: {
-          
-        },
-        watch: {},
-        created() {
-                getMvDetail({id:this.$route.params.id})
-                    .then((result)=>{
-                        this.mv=result.data
-                        // console.log(result.data);
-                    })
-                    .catch((error)=>{
-                        console.log(error);
-                    })
-       
-        },
-
-
+export default {
+  name: '',
+  props: [''],
+  data () {
+    return {
+      mv: {},
+      switchNum: 0
 
     }
+  },
+  components: {
+    Header,
+    Scrollview,
+    CommentList
+  },
+  computed: {},
+  beforeMount () {},
+  mounted () {
+  },
+  methods: {
+
+  },
+  watch: {},
+  created () {
+    getMvDetail({ id: this.$route.params.id })
+      .then((result) => {
+        this.mv = result.data
+        // console.log(result.data);
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
+}
 
 </script>
 
@@ -82,7 +79,7 @@ import CommentList from './../components/CommentList/commentList'
         left: 0;
         bottom: 0;
     }
-        
+
     }
     .mv-middle{
         width: 100%;
@@ -95,8 +92,6 @@ import CommentList from './../components/CommentList/commentList'
             height: 100%;
         }
     }
-  
-
 
 }
 </style>

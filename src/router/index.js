@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-//实现路由按需加载
+// 实现路由按需加载
 const Recommend = () => import('../views/Recommend.vue')
 const Singer = () => import('../views/Singer.vue')
 const Rank = () => import('../views/Rank.vue')
@@ -22,38 +22,47 @@ Vue.use(VueRouter)
 const routes = [
   { path: '/', redirect: '/recommend' },
   {
-     path: '/recommend', component: Recommend ,
-     children:[
-       {
-         path:'detail/:id/:type',
-         component: Detail ,
-       }
-     ],
-  },
-  { path: '/singer', component: Singer,
-    children:[
+    path: '/recommend',
+    component: Recommend,
+    children: [
       {
-        path:'detail/:id/:type',
-        component: Detail ,
+        path: 'detail/:id/:type',
+        component: Detail
+      }
+    ]
+  },
+  {
+    path: '/singer',
+    component: Singer,
+    children: [
+      {
+        path: 'detail/:id/:type',
+        component: Detail
       }]
-  }, 
-  { path: '/rank', component: Rank ,
-  children:[
-    {
-      path:'detail/:id/:type',
-      component: Detail ,
-    }
-  ],
-},
+  },
+  {
+    path: '/rank',
+    component: Rank,
+    children: [
+      {
+        path: 'detail/:id/:type',
+        component: Detail
+      }
+    ]
+  },
   { path: '/search', component: Search },
   { path: '/account', component: Account },
-  { path: '/mv', component: Mv,children:[
-    {
-      path: 'mvdetail/:id/',
-      component:MvDetail
-    }
-  ]},
-  { path: '/songComment/:id', component: Comment },
+  {
+    path: '/mv',
+    component: Mv,
+    children: [
+      {
+        path: 'mvdetail/:id/',
+        component: MvDetail
+      }
+    ]
+  },
+  { path: '/songComment/:id', component: Comment }
 
 ]
 

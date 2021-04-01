@@ -21,7 +21,7 @@ import {mapActions, mapGetters,mapMutations} from 'vuex';
                 default:()=>[],
                 require:true
             },
-          
+
         },
         data () {
             return {
@@ -50,7 +50,7 @@ import {mapActions, mapGetters,mapMutations} from 'vuex';
             ...mapMutations([
                 // 'SET_SONG_DETAIL'
             ]),
-            selectMusic(id,index){
+          async selectMusic(id,index){
                 // console.log(index);
                 let list= this.songs.filter(function(value,index){
                     // console.log(value.name);
@@ -60,8 +60,8 @@ import {mapActions, mapGetters,mapMutations} from 'vuex';
                     })
                 let ids=list.map(function(value){
                     return value.id;
-                    })  
-                this.setSongDetail(ids);
+                    })
+                await this.setSongDetail(ids);
                 // this.SET_SONG_DETAIL(list);
                 this.setPlaying(true);
                 this.setFullScreen(true)
@@ -97,7 +97,7 @@ import {mapActions, mapGetters,mapMutations} from 'vuex';
             }
             div{
                 h3{
-                    @include font_size($font_large);    
+                    @include font_size($font_large);
                     @include font_color();
                     @include clamp(1);
                 }
@@ -110,5 +110,5 @@ import {mapActions, mapGetters,mapMutations} from 'vuex';
             }
         }
     }
-    
+
 </style>

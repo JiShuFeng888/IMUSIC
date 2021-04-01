@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-        <div class="bottom">    
+        <div class="bottom">
                 <div class="bottom-play" @click="selectAllMusic">
                     <span></span>
                     <span>播放全部</span>
@@ -70,7 +70,7 @@ import {mapActions,mapGetters,mapMutations} from 'vuex'
                 if(this.num===0){
                     ids=this.favoriteList.map(function(value){
                         return value.id;
-                    })  
+                    })
                     // this.SET_SONG_DETAIL(this.favoriteList)
                 }else{
                      ids=this.historyList.map(function(value){
@@ -79,10 +79,11 @@ import {mapActions,mapGetters,mapMutations} from 'vuex'
                     // this.SET_SONG_DETAIL(this.historyList)
                 }
                 this.setSongDetail(ids);
-                this.setFullScreen(true);
                 this.setCurrentIndex(0);
                 this.setPlaying(true)
-                }
+                this.setFullScreen(true);
+
+            }
         },
         watch: {}
 
@@ -113,7 +114,7 @@ import {mapActions,mapGetters,mapMutations} from 'vuex'
         border-left: none;
         span{
             @include font_color();
-            display: inline-block; 
+            display: inline-block;
             &:nth-of-type(1){
                 margin-right: 30px;
                 width: 46px;

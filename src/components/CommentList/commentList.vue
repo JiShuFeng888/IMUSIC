@@ -22,89 +22,86 @@
 </template>
 
 <script>
-import{getComment} from './../../api/index'
-import {mapGetters} from 'vuex'
-    export default {
-        name:'',
-        props:{
-            "type":{
-                default:'',
-                require:true,
-                type:String,
-            },
-        },
-        data () {
-            return {
-                comments:[],
-                id:0,
-            };
-        },
-        components: {},
-        computed: {
-            ...mapGetters([
-                'currentSong',
-                'isComment'
-            ])
-        },
-        beforeMount() {},
-        mounted() {
-         
-        },
-        methods: {
-
-        },
-        watch: {
-            currentSong:function(newvalue,oldvalue){ 
-                    this.id=newvalue.id;
-                   
-            },
-            isComment:function(newvalue,oldvalue){
-                if(newvalue===true&&this.id!==0){
-                      getComment({id:this.id,type:0,sortType:2})
-                                   .then((result)=>{
-                                       this.comments=result.data.comments;
-                                   })
-                                   .catch((error)=>{
-                                       console.log(error);
-                })
-                }
-            }
-
-        },
-        filters: {
-           "formartTime":function(time){
-                let  date = new Date(time);
-                // console.log(date);
-                // console.log(date.getFullYear()); // 返回当前日期的年  2020
-                // console.log(date.getMonth() + 1); // 月份 返回的月份小1个月   记得月份+1 呦 11
-                // console.log(date.getDate()); // 返回的是 几号 28
-                return date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日"
-            }
-        },
-        created(){
-                if(this.type==="mv"){
-                    getComment({id:this.$route.params.id,type:1,sortType:2})
-                        .then((result)=>{
-                            this.comments=result.data.comments;
-                            // console.log(this.comments);
-                        })
-                        .catch((error)=>{
-                            console.log(error);
-                    })
-                }else if(this.type==="song"){
-                      getComment({id:this.$route.params.id,type:0,sortType:2})
-                        .then((result)=>{
-                            this.comments=result.data.comments;
-                        })
-                        .catch((error)=>{
-                            console.log(error);
-                    })
-                }
-
-            
-        }
-
+import { getComment } from './../../api/index'
+import { mapGetters } from 'vuex'
+export default {
+  name: '',
+  props: {
+    type: {
+      default: '',
+      require: true,
+      type: String
     }
+  },
+  data () {
+    return {
+      comments: [],
+      id: 0
+    }
+  },
+  components: {},
+  computed: {
+    ...mapGetters([
+      'currentSong',
+      'isComment'
+    ])
+  },
+  beforeMount () {},
+  mounted () {
+
+  },
+  methods: {
+
+  },
+  watch: {
+    currentSong: function (newvalue, oldvalue) {
+      this.id = newvalue.id
+    },
+    isComment: function (newvalue, oldvalue) {
+      if (newvalue === true && this.id !== 0) {
+        getComment({ id: this.id, type: 0, sortType: 2 })
+          .then((result) => {
+            this.comments = result.data.comments
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+      }
+    }
+
+  },
+  filters: {
+    formartTime: function (time) {
+      const date = new Date(time)
+      // console.log(date);
+      // console.log(date.getFullYear()); // 返回当前日期的年  2020
+      // console.log(date.getMonth() + 1); // 月份 返回的月份小1个月   记得月份+1 呦 11
+      // console.log(date.getDate()); // 返回的是 几号 28
+      return date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日'
+    }
+  },
+  created () {
+    if (this.type === 'mv') {
+      getComment({ id: this.$route.params.id, type: 1, sortType: 2 })
+        .then((result) => {
+          this.comments = result.data.comments
+          // console.log(this.comments);
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    } else if (this.type === 'song') {
+      getComment({ id: this.$route.params.id, type: 0, sortType: 2 })
+        .then((result) => {
+          this.comments = result.data.comments
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+  }
+
+}
 
 </script>
 

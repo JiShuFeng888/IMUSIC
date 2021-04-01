@@ -12,38 +12,38 @@
 <script>
 import Header from './../components/Detail/DetailHeader'
 import CommentList from './../components/CommentList/commentList'
-import ScrollView from '../components/Scrollview';
-import { mapGetters } from 'vuex';
+import ScrollView from '../components/Scrollview'
+import { mapGetters } from 'vuex'
 
-    export default {
-        name:'',
-        props:[''],
-        data () {
-            return {
-
-            };
-        },
-        components: {
-            Header,
-            CommentList,
-            ScrollView
-        },
-        computed: {
-            ...mapGetters([
-                'currentSong',
-                'isComment'
-            ])
-        },
-        beforeMount() {},
-        mounted() {},
-        methods: {
- 
-        },
-        watch: {
-       
-        }
+export default {
+  name: '',
+  props: [''],
+  data () {
+    return {
 
     }
+  },
+  components: {
+    Header,
+    CommentList,
+    ScrollView
+  },
+  computed: {
+    ...mapGetters([
+      'currentSong',
+      'isComment'
+    ])
+  },
+  beforeMount () {},
+  mounted () {},
+  methods: {
+
+  },
+  watch: {
+
+  }
+
+}
 
 </script>
 
