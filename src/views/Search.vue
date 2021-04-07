@@ -11,7 +11,7 @@
     <div class="search-suggest" v-show="keyword!==''">
       <ScrollView>
         <ul>
-          <li v-for="(value) in songs" :key="value.id" @click.stop="selectMusic(value.id)">
+          <li v-for="(value,index) in songs" :key="value.id" @click.stop="selectMusic(value.id,index)">
             <img
               src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNiAyNiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSIjYzljOWNhIiBkPSJNMjUuMTgxIDIzLjUzNWwtMS40MTQgMS40MTQtNy4zMTUtNy4zMTRBOS45NjYgOS45NjYgMCAwIDEgMTAgMjBDNC40NzcgMjAgMCAxNS41MjMgMCAxMFM0LjQ3NyAwIDEwIDBzMTAgNC40NzcgMTAgMTBjMCAyLjM0Mi0uODExIDQuNDktMi4xNiA2LjE5NWw3LjM0MSA3LjM0ek0xMCAyYTggOCAwIDEgMCAwIDE2IDggOCAwIDAgMCAwLTE2eiIvPjwvc3ZnPg=="
               alt="">
@@ -107,10 +107,15 @@ export default {
       this.keyword = name
       this.search()
     },
-    selectMusic (id) {
-      this.setSongDetail([id])
+    async selectMusic (id, index) {
+      const ids = this.songs.map(function (value) {
+        return value.id
+      })
+      await this.setSongDetail(ids)
+      this.setCurrentIndex(index)
       this.setPlaying(true)
       this.setFullScreen(true)
+      // this.$store.dispatch('setFullScreen',true);
 
       if (this.searchHistory.includes(this.keyword)) {
         return
@@ -119,6 +124,7 @@ export default {
       setLocalStorage('searchHistory', this.searchHistory)
       this.keyword = ''
     },
+
     search () {
       getSearchList({ keywords: this.keyword })
         .then((data) => {
@@ -270,7 +276,6 @@ export default {
 
   .search-history {
     padding: 0 30px;
-
     li {
       display: flex;
       justify-content: space-between;

@@ -50,9 +50,6 @@
     display: flex;
     justify-content: space-between;
     font-size: 30px; 
-    border-top-left-radius:30px;
-    border-top-right-radius:30px;
-    overflow: hidden;
     .left,.right{
         margin: 0 10px;
         margin-top: 8px;

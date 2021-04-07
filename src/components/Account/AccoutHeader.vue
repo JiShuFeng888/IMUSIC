@@ -63,10 +63,8 @@ import Header from './../Header'
         justify-content: center;
         align-items: center;
         border: 2px solid #fff;
-        border-radius: 20px;
         height: 60px;
         margin-top: 20px;
-        overflow: hidden;
         li{
             height: 60px;
             width: 150px;

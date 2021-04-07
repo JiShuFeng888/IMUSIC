@@ -107,11 +107,9 @@ import {mapActions,mapGetters,mapMutations} from 'vuex'
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid #ccc;
-        @include border_color();
+        border-bottom: 1px solid #cccccc;
+        // @include border_color();
         box-sizing: border-box;
-        border-right: none;
-        border-left: none;
         span{
             @include font_color();
             display: inline-block;

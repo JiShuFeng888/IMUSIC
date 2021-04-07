@@ -51,7 +51,7 @@ import {mapActions} from 'vuex'
 @import '../../assets/css/variable';
 @import '../../assets/css/mixin';
 .header{
-    overflow: hidden;
+
     .header-left{
         @include bg_img('../../assets/images/back')
     }
