@@ -16,9 +16,19 @@ export default {
     }
   },
   mounted () {
+    function iScrollClick(){
+    if (/iPhone|iPad|iPod|Macintosh/i.test(navigator.userAgent)) return false;
+    if (/Chrome/i.test(navigator.userAgent)) return (/Android/i.test(navigator.userAgent));
+    if (/Silk/i.test(navigator.userAgent)) return false;
+    if (/Android/i.test(navigator.userAgent)) {
+       var s=navigator.userAgent.substr(navigator.userAgent.indexOf('Android')+8,3);
+       return parseFloat(s[0]+s[3]) < 44 ? false : true
+    }
+  }
     this.iscroll = new IScroll(this.$refs.wrapper, {
       // 点击失效问题
-      click: true,
+      // click: true,
+      click:iScrollClick(), //调用判断函数
       mouseWheel: true,
       scrollbars: false,
       probeType: 3,
@@ -29,6 +39,7 @@ export default {
       disableTouch: false,
       disableMouse: true
     })
+
     // setTimeout(()=>{
     //     console.log(this.iscroll.maxScrollY);
     //     this.iscroll.refresh();
