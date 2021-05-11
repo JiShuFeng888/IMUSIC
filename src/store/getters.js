@@ -17,7 +17,7 @@ export default{
       songs(state){
         return state.songs;
       },
-      currentSong(state) {
+      currentSong(state) {   
         let obj = {
           name: '',
           singer: '',

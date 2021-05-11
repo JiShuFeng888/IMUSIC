@@ -76,15 +76,15 @@ export default {
 <style lang='scss' scoped>
 @import '../assets/css/mixin.scss';
 .mv{
-    overflow: hidden;
-    position: fixed;
-    top: 184px;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    width:100%;
+    height: 100%;
     .mv-wrapper{
-        width:100%;
-        height: 100%;
+      overflow: hidden;
+      position: fixed;
+      top: 184px;
+      left: 0;
+      right: 0;
+      bottom: 0;
         @include bg_sub_color();
         ul{
             display: flex;

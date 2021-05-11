@@ -62,6 +62,10 @@ export default {
       if (this.scrollY >= 0) {
         return ''
       } else {
+        this.$nextTick(()=>{
+        this.fixTitleHeight = this.$refs.fixTitle.offsetHeight
+        // console.log(this.fixTitleHeight);
+      })
         return this.keys[this.currentIndex]
       }
     }
@@ -106,8 +110,8 @@ export default {
           if (fixTitleOffsetY === this.fixTitleOffsetY) {
             return
           }
-          this.fixTitleOffsetY = fixTitleOffsetY
-          this.$refs.fixTitle.style.transfrom = `translateY(${fixTitleOffsetY}px)`
+            // console.log(fixTitleOffsetY);
+          this.$refs.fixTitle.style.transform = `translateY(${fixTitleOffsetY}px)`
 
           return
         }
@@ -126,7 +130,7 @@ export default {
 
       this.beginOffsetY = e.touches[0].pageY
     },
-    touchmove (e) {
+    touchmove (e) {2
       this.moveOffsetY = e.touches[0].pageY
       const offsetY = (this.moveOffsetY - this.beginOffsetY) / e.target.offsetHeight
       // 偏移多少个index //巧妙的设计
@@ -146,17 +150,18 @@ export default {
   watch: {
     // 难点
     list () {
-      this.$nextTick(function () {
+      this.$nextTick(()=>{
         this.$refs.group.forEach((value) => {
           this.groupTop.push(value.offsetTop)
         })
       })
     },
-    fixTitle () {
-      this.$nextTick(function () {
-        this.fixTitleHeight = this.$ref.fixTitle.offsetHeight
-      })
-    }
+    // fixTitle () {
+    //   this.$nextTick(()=>{
+    //     this.fixTitleHeight = this.$refs.fixTitle.offsetHeight
+    //     console.log(this.fixTitleHeight);
+    //   })
+    // }
 
   }
 }
@@ -166,16 +171,15 @@ export default {
 @import '../assets/css/mixin.scss';
 
 .singer {
-  position: fixed;
-  top: 184px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-
-  .singer-wrapper {
-    width: 100%;
+   width: 100%;
     height: 100%;
+  .singer-wrapper {
+    position: fixed;
+    top: 184px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
     @include bg_sub_color();
 
     .list-wrapper {

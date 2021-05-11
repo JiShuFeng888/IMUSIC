@@ -45,7 +45,7 @@ import Scrollview from '../components/Scrollview'
                 console.log(error);
             }),
             getSong().then((data)=>{
-                //  this.songs=data.result  
+                //  this.songs=data.result
                 let list=[]
                 data.result.forEach((value)=>{
                     let obj={};
@@ -104,16 +104,15 @@ import Scrollview from '../components/Scrollview'
 
 <style lang='scss' scoped>
 .recommend{
-    position: fixed;
-    top: 184px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    // overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 .recommend-wrapper{
-    width: 100%;
-    height: 100%;
+  position: fixed;
+  top: 184px;
+  left: 0;
+  right: 0;
+  bottom: 0;
     overflow: hidden;
 }
 

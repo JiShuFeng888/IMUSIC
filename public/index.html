@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon180.png">
     <!--网页快捷图标-->
     <link rel="icon" href="./favicon.ico">
-        <script>
+      <script>
       /*
       注意点:
       预渲染的本质就是在打包时就"模拟浏览器"提前访问路由对应的网页, 然后将访问的结果写入到.html文件中
@@ -36,6 +36,21 @@
       document.documentElement.style.fontSize = window.innerWidth / 7.5 + "px";
       document.documentElement.setAttribute('data-dpr', Math.floor(window.devicePixelRatio) + '');
       document.documentElement.setAttribute('data-theme', 'theme');
+
+    
+
+        // H5 plus事件处理
+      function plusReady(){
+        // 设置系统状态栏背景为红色
+        plus.navigator.setStatusBarBackground('#d43c33');
+      }
+      if(window.plus){
+        plusReady();
+      }else{
+        document.addEventListener('plusready', plusReady, false);
+      }
+
+     
     </script>
 </head>
 
